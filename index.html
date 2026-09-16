@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>هيثم التهامي | مهندس تصميم داخلي أول ومدير مشاريع — متاح للعمل في المملكة العربية السعودية</title>
+  <meta name="description" content="هيثم التهامي — مهندس تصميم داخلي أول، مدير مكتب فني، ومدير مشاريع في المدينة المنورة، المملكة العربية السعودية.">
+  <link rel="icon" href="profile.png">
+  <link rel="canonical" href="https://haytham-portfolio-cyan.vercel.app/">
+  <meta property="og:title" content="Haytham Al-Tohami | Senior Interior Design Engineer & Project Manager">
+  <meta property="og:description" content="Technical Office Manager | Project Manager | Design & Build Consultant — Al Madinah, Saudi Arabia.">
+  <meta property="og:image" content="https://haytham-portfolio-cyan.vercel.app/profile.png">
+  <meta property="og:url" content="https://haytham-portfolio-cyan.vercel.app/">
+  <meta property="og:type" content="profile">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,14 +29,58 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Noto Sans Arabic', sans-serif;
+      font-family: 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       color: var(--dark);
       line-height: 1.6;
       background: var(--white);
       direction: rtl;
     }
 
+    html[lang="en"] body {
+      direction: ltr;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      letter-spacing: 0.1px;
+    }
+
     a { text-decoration: none; color: inherit; }
+
+    /* Language switcher */
+    .lang-switch {
+      position: absolute;
+      top: 18px;
+      inset-inline-end: 18px;
+      z-index: 20;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(201,169,110,0.4);
+      border-radius: 30px;
+      padding: 3px;
+      backdrop-filter: blur(6px);
+    }
+    .lang-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: #cfcfcf;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: inherit;
+      padding: 6px 14px;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn:hover { color: var(--white); }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #1a1a1a;
+    }
+    .lang-btn:focus-visible {
+      outline: 2px solid var(--white);
+      outline-offset: 2px;
+    }
 
     /* Hero */
     .hero {
@@ -128,6 +180,7 @@
       justify-content: center;
       color: var(--white);
       font-size: 16px;
+      flex-shrink: 0;
     }
     .section-subtext {
       font-size: 13px;
@@ -172,12 +225,12 @@
     /* Timeline */
     .timeline {
       position: relative;
-      padding-right: 24px;
+      padding-inline-start: 24px;
     }
     .timeline::before {
       content: '';
       position: absolute;
-      right: 6px;
+      inset-inline-start: 6px;
       top: 0;
       bottom: 0;
       width: 2px;
@@ -186,12 +239,12 @@
     .timeline-item {
       position: relative;
       margin-bottom: 28px;
-      padding-right: 28px;
+      padding-inline-start: 28px;
     }
     .timeline-item::before {
       content: '';
       position: absolute;
-      right: -5px;
+      inset-inline-start: -5px;
       top: 4px;
       width: 14px;
       height: 14px;
@@ -228,7 +281,7 @@
     }
     .timeline-desc ul {
       margin: 0;
-      padding-right: 18px;
+      padding-inline-start: 18px;
     }
     .timeline-desc li { margin-bottom: 4px; }
 
@@ -258,6 +311,7 @@
       height: 8px;
       background: var(--accent);
       border-radius: 50%;
+      flex-shrink: 0;
     }
     .skill-tags {
       display: flex;
@@ -325,6 +379,7 @@
       font-size: 11px;
       margin-top: 10px;
       font-weight: 500;
+      word-break: break-all;
     }
 
     /* Behance */
@@ -391,6 +446,8 @@
       font-size: 11px;
       opacity: 0.8;
       border: 1px solid rgba(255,255,255,0.2);
+      padding: 6px;
+      text-align: center;
     }
 
     /* Opportunities */
@@ -520,6 +577,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 8px;
     }
     .lang-item span:first-child {
       font-weight: 600;
@@ -531,6 +589,7 @@
       background: rgba(201,169,110,0.1);
       padding: 2px 10px;
       border-radius: 10px;
+      white-space: nowrap;
     }
 
     /* Contact */
@@ -577,10 +636,13 @@
 
     /* Responsive */
     @media (max-width: 600px) {
+      .hero { padding-top: 72px; }
       .hero h1 { font-size: 24px; }
       .stats-row { flex-direction: column; }
       .gallery-preview { grid-template-columns: repeat(2, 1fr); }
       .ai-grid { grid-template-columns: 1fr; }
+      .lang-switch { top: 14px; inset-inline-end: 14px; }
+      .lang-btn { padding: 5px 11px; font-size: 12px; }
     }
   </style>
 </head>
@@ -588,48 +650,48 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-avatar">
-      <img src="profile.png" alt="هيثم التهامي" />
+    <div class="lang-switch" role="group" aria-label="Language / اللغة">
+      <button type="button" class="lang-btn active" data-lang="ar" aria-pressed="true">عربي</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">English</button>
     </div>
-    <h1>هيثم التهامي</h1>
-    <div class="title">مدير مكتب فني | مدير مشاريع | استشاري تصميم وبناء</div>
+
+    <div class="hero-avatar">
+      <img src="profile.png" alt="هيثم التهامي" data-i18n="alt.photo" />
+    </div>
+    <h1 data-i18n="hero.name">هيثم التهامي</h1>
+    <div class="title" data-i18n="hero.title">مدير مكتب فني | مدير مشاريع | استشاري تصميم وبناء</div>
     <div class="location">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      القاهرة، مصر · متاح للانتقال إلى المملكة العربية السعودية
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span data-i18n="hero.location">المدينه المنوره - المملكه العربيه السعوديه</span>
     </div>
     <div class="hero-badges">
-      <span class="hero-badge">+23 سنة خبرة</span>
-      <span class="hero-badge">خبرة عمل سابقة في السعودية</span>
-      <span class="hero-badge">متاح للانتقال فورًا</span>
-      <span class="hero-badge">+7 مشاريع AI</span>
+      <span class="hero-badge" data-i18n="hero.badges.saudi">خبرة عمل سابقة في السعودية</span>
+      <span class="hero-badge" data-i18n="hero.badges.relocate">متاح للانتقال فورًا</span>
+      <span class="hero-badge" data-i18n="hero.badges.ai">+7 مشاريع AI</span>
     </div>
   </div>
 
   <!-- About -->
   <div class="section">
     <div class="section-title">
-      <div class="icon">👤</div>
-      نبذة احترافية
+      <div class="icon" aria-hidden="true">👤</div>
+      <span data-i18n="about.title">نبذة احترافية</span>
     </div>
-    <p class="about-text">
-      مهندس تصميم داخلي أول ومدير مكتب فني ومشرف مشاريع يتمتع بأكثر من 23 عاماً من الخبرة العملية في تنفيذ المشاريع المعقدة في السودان والسعودية ومصر. سجل حافل في قيادة المكاتب الفنية وتنسيق التصاميم الإنشائية والجمالية وتنفيذ المشاريع من المفهوم وحتى التسليم. خبير في جدولة المشاريع وهندسة القيمة وجداول الكميات (BOQ) وضمان الالتزام بالميزانيات ومعايير الجودة. أمتلك خبرة متقدمة في تصميم وتطوير المواقع والتطبيقات باستخدام الذكاء الاصطناعي.
+    <p class="about-text" data-i18n="about.text">
+      مهندس تصميم داخلي أول ومدير مكتب فني ومشرف مشاريع بخبرة عملية واسعة في تنفيذ المشاريع المعقدة في السودان والسعودية ومصر. سجل حافل في قيادة المكاتب الفنية وتنسيق التصاميم الإنشائية والجمالية وتنفيذ المشاريع من المفهوم وحتى التسليم. خبير في جدولة المشاريع وهندسة القيمة وجداول الكميات (BOQ) وضمان الالتزام بالميزانيات ومعايير الجودة. أمتلك خبرة متقدمة في تصميم وتطوير المواقع والتطبيقات باستخدام الذكاء الاصطناعي.
     </p>
     <div class="stats-row">
       <div class="stat-card">
-        <div class="stat-number">23+</div>
-        <div class="stat-label">سنة خبرة</div>
-      </div>
-      <div class="stat-card">
         <div class="stat-number">3</div>
-        <div class="stat-label">دول</div>
+        <div class="stat-label" data-i18n="about.stats.countries">دول</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">50+</div>
-        <div class="stat-label">مشروع منفذ</div>
+        <div class="stat-label" data-i18n="about.stats.projects">مشروع منفذ</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">7+</div>
-        <div class="stat-label">مواقع AI</div>
+        <div class="stat-label" data-i18n="about.stats.ai">مواقع AI</div>
       </div>
     </div>
   </div>
@@ -638,53 +700,53 @@
   <div class="section" style="background: var(--light); margin: 0; max-width: 100%; padding: 40px 24px;">
     <div style="max-width: 800px; margin: 0 auto;">
       <div class="section-title">
-        <div class="icon">💼</div>
-        الخبرات العملية
+        <div class="icon" aria-hidden="true">💼</div>
+        <span data-i18n="exp.title">الخبرات العملية</span>
       </div>
       <div class="timeline">
         <div class="timeline-item current">
-          <div class="timeline-role">مدير مشاريع</div>
-          <div class="timeline-company">شركة الديار للإنشاءات | مصر</div>
-          <div class="timeline-date">يوليو 2025 – حتى الآن</div>
+          <div class="timeline-role" data-i18n="exp.1.role">مدير مشاريع</div>
+          <div class="timeline-company" data-i18n="exp.1.company">شركة الديار للإنشاءات | مصر</div>
+          <div class="timeline-date" data-i18n="exp.1.date">يوليو 2025 – حتى الآن</div>
           <div class="timeline-desc">
             <ul>
-              <li>إدارة المشاريع من التصميم حتى التسليم وضمان الالتزام بالجدول الزمني والميزانية</li>
-              <li>التنسيق مع المكتب الفني والمقاولين والاستشاريين لحل تعارضات التصميم وضمان التنفيذ السلس</li>
-              <li>متابعة تقدم التنفيذ الموقعي وضبط الجودة على مستوى المشروع</li>
+              <li data-i18n="exp.1.b1">إدارة المشاريع من التصميم حتى التسليم وضمان الالتزام بالجدول الزمني والميزانية</li>
+              <li data-i18n="exp.1.b2">التنسيق مع المكتب الفني والمقاولين والاستشاريين لحل تعارضات التصميم وضمان التنفيذ السلس</li>
+              <li data-i18n="exp.1.b3">متابعة تقدم التنفيذ الموقعي وضبط الجودة على مستوى المشروع</li>
             </ul>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-role">مدير المكتب الفني</div>
-          <div class="timeline-company">شركة الديار للإنشاءات | مصر</div>
-          <div class="timeline-date">يوليو 2024 – يوليو 2025</div>
+          <div class="timeline-role" data-i18n="exp.2.role">مدير المكتب الفني</div>
+          <div class="timeline-company" data-i18n="exp.2.company">شركة الديار للإنشاءات | مصر</div>
+          <div class="timeline-date" data-i18n="exp.2.date">يوليو 2024 – يوليو 2025</div>
           <div class="timeline-desc">
             <ul>
-              <li>إدارة جميع عمليات المكتب الفني وإنتاج Shop Drawings وMaterial Submittals وRFI</li>
-              <li>إعداد جداول الكميات (BOQ) والتقديرات التكلفية ومقترحات هندسة القيمة</li>
+              <li data-i18n="exp.2.b1">إدارة جميع عمليات المكتب الفني وإنتاج Shop Drawings وMaterial Submittals وRFI</li>
+              <li data-i18n="exp.2.b2">إعداد جداول الكميات (BOQ) والتقديرات التكلفية ومقترحات هندسة القيمة</li>
             </ul>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-role">مشرف تصميم وبناء</div>
-          <div class="timeline-company">أعمال خاصة | السودان</div>
-          <div class="timeline-date">مايو 2008 – مارس 2023</div>
+          <div class="timeline-role" data-i18n="exp.3.role">مشرف تصميم وبناء</div>
+          <div class="timeline-company" data-i18n="exp.3.company">أعمال خاصة | السودان</div>
+          <div class="timeline-date" data-i18n="exp.3.date">مايو 2008 – مارس 2023</div>
           <div class="timeline-desc">
             <ul>
-              <li>إدارة الإشراف على التصميم وإدارة المشاريع السكنية والتجارية والضيافة الفاخرة</li>
-              <li>إدارة التنفيذ الموقعي وجدولة المشاريع باستخدام MS Project</li>
-              <li>إجراء عمليات تفتيش دورية لضمان الالتزام بمعايير الجودة والمواصفات</li>
+              <li data-i18n="exp.3.b1">إدارة الإشراف على التصميم وإدارة المشاريع السكنية والتجارية والضيافة الفاخرة</li>
+              <li data-i18n="exp.3.b2">إدارة التنفيذ الموقعي وجدولة المشاريع باستخدام MS Project</li>
+              <li data-i18n="exp.3.b3">إجراء عمليات تفتيش دورية لضمان الالتزام بمعايير الجودة والمواصفات</li>
             </ul>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-role">استشاري تصميم وبناء</div>
-          <div class="timeline-company">شركة زهير للإنشاءات | السعودية</div>
-          <div class="timeline-date">أبريل 2007 – أبريل 2008</div>
+          <div class="timeline-role" data-i18n="exp.4.role">استشاري تصميم وبناء</div>
+          <div class="timeline-company" data-i18n="exp.4.company">شركة زهير للإنشاءات | السعودية</div>
+          <div class="timeline-date" data-i18n="exp.4.date">أبريل 2007 – أبريل 2008</div>
           <div class="timeline-desc">
             <ul>
-              <li>تقديم استشارات التصميم الداخلي والتنسيق الإنشائي ومواد التشطيبات</li>
-              <li>مراجعة واعتماد المخططات المعمارية بما يتوافق مع أكواد البناء المحلية</li>
+              <li data-i18n="exp.4.b1">تقديم استشارات التصميم الداخلي والتنسيق الإنشائي ومواد التشطيبات</li>
+              <li data-i18n="exp.4.b2">مراجعة واعتماد المخططات المعمارية بما يتوافق مع أكواد البناء المحلية</li>
             </ul>
           </div>
         </div>
@@ -695,39 +757,39 @@
   <!-- Skills -->
   <div class="section">
     <div class="section-title">
-      <div class="icon">🛠️</div>
-      المهارات والأدوات
+      <div class="icon" aria-hidden="true">🛠️</div>
+      <span data-i18n="skills.title">المهارات والأدوات</span>
     </div>
     <div class="skills-grid">
       <div class="skill-category">
-        <h4><span class="dot"></span>إدارة المشاريع</h4>
+        <h4><span class="dot"></span><span data-i18n="skills.pm">إدارة المشاريع</span></h4>
         <div class="skill-tags">
-          <span class="skill-tag">جدولة المشاريع</span>
-          <span class="skill-tag">إدارة المكتب الفني</span>
-          <span class="skill-tag">إدارة التشطيبات</span>
-          <span class="skill-tag">إشراف موقع</span>
-          <span class="skill-tag">ضبط الجودة</span>
+          <span class="skill-tag" data-i18n="skills.pm.1">جدولة المشاريع</span>
+          <span class="skill-tag" data-i18n="skills.pm.2">إدارة المكتب الفني</span>
+          <span class="skill-tag" data-i18n="skills.pm.3">إدارة التشطيبات</span>
+          <span class="skill-tag" data-i18n="skills.pm.4">إشراف موقع</span>
+          <span class="skill-tag" data-i18n="skills.pm.5">ضبط الجودة</span>
         </div>
       </div>
       <div class="skill-category">
-        <h4><span class="dot"></span>التكاليف والعقود</h4>
+        <h4><span class="dot"></span><span data-i18n="skills.cost">التكاليف والعقود</span></h4>
         <div class="skill-tags">
           <span class="skill-tag">BOQ</span>
-          <span class="skill-tag">تقدير التكاليف</span>
-          <span class="skill-tag">هندسة القيمة</span>
-          <span class="skill-tag">إدارة الميزانية</span>
+          <span class="skill-tag" data-i18n="skills.cost.1">تقدير التكاليف</span>
+          <span class="skill-tag" data-i18n="skills.cost.2">هندسة القيمة</span>
+          <span class="skill-tag" data-i18n="skills.cost.3">إدارة الميزانية</span>
         </div>
       </div>
       <div class="skill-category">
-        <h4><span class="dot"></span>التصميم والعمارة</h4>
+        <h4><span class="dot"></span><span data-i18n="skills.design">التصميم والعمارة</span></h4>
         <div class="skill-tags">
-          <span class="skill-tag">التصميم الداخلي</span>
-          <span class="skill-tag">التصميم المكاني</span>
-          <span class="skill-tag">التنسيق الإنشائي</span>
+          <span class="skill-tag" data-i18n="skills.design.1">التصميم الداخلي</span>
+          <span class="skill-tag" data-i18n="skills.design.2">التصميم المكاني</span>
+          <span class="skill-tag" data-i18n="skills.design.3">التنسيق الإنشائي</span>
         </div>
       </div>
       <div class="skill-category">
-        <h4><span class="dot"></span>BIM & CAD</h4>
+        <h4><span class="dot"></span><span>BIM &amp; CAD</span></h4>
         <div class="skill-tags">
           <span class="skill-tag">Autodesk Revit</span>
           <span class="skill-tag">AutoCAD</span>
@@ -738,17 +800,17 @@
         </div>
       </div>
       <div class="skill-category">
-        <h4><span class="dot"></span>الذكاء الاصطناعي</h4>
+        <h4><span class="dot"></span><span data-i18n="skills.ai">الذكاء الاصطناعي</span></h4>
         <div class="skill-tags">
-          <span class="skill-tag">تصميم المواقع</span>
-          <span class="skill-tag">تطوير التطبيقات</span>
+          <span class="skill-tag" data-i18n="skills.ai.1">تصميم المواقع</span>
+          <span class="skill-tag" data-i18n="skills.ai.2">تطوير التطبيقات</span>
           <span class="skill-tag">Vercel</span>
           <span class="skill-tag">Whacka</span>
           <span class="skill-tag">Bonto</span>
         </div>
       </div>
       <div class="skill-category">
-        <h4><span class="dot"></span>البرامج المكتبية</h4>
+        <h4><span class="dot"></span><span data-i18n="skills.office">البرامج المكتبية</span></h4>
         <div class="skill-tags">
           <span class="skill-tag">MS Project</span>
           <span class="skill-tag">MS Office</span>
@@ -762,15 +824,15 @@
   <div class="section" style="background: var(--light); margin: 0; max-width: 100%; padding: 40px 24px;">
     <div style="max-width: 800px; margin: 0 auto;">
       <div class="section-title">
-        <div class="icon" style="background: #1769ff;">🎨</div>
-        معرض الأعمال
+        <div class="icon" style="background: #1769ff;" aria-hidden="true">🎨</div>
+        <span data-i18n="work.title">معرض الأعمال</span>
       </div>
       <div class="behance-card">
         <div class="behance-logo">Be</div>
-        <div class="behance-sub">تصفح أعمالي على منصة Behance</div>
-        <a href="https://www.behance.net/gallery/120529997/My-Design" target="_blank" class="behance-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg>
-          مشاهدة المعرض على Behance
+        <div class="behance-sub" data-i18n="work.sub">تصفح أعمالي على منصة Behance</div>
+        <a href="https://www.behance.net/gallery/120529997/My-Design" target="_blank" rel="noopener" class="behance-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg>
+          <span data-i18n="work.btn">مشاهدة المعرض على Behance</span>
         </a>
         <div class="gallery-preview">
           <div class="gallery-item">Master Bed</div>
@@ -778,7 +840,7 @@
           <div class="gallery-item">Farm Offices</div>
           <div class="gallery-item">Small Villa</div>
           <div class="gallery-item">Swimming Pool</div>
-          <div class="gallery-item">+ المزيد</div>
+          <div class="gallery-item" data-i18n="work.more">+ المزيد</div>
         </div>
       </div>
     </div>
@@ -787,53 +849,53 @@
   <!-- AI Projects -->
   <div class="section">
     <div class="section-title">
-      <div class="icon">🤖</div>
-      مشاريع إضافية بتقنية الذكاء الاصطناعي
+      <div class="icon" aria-hidden="true">🤖</div>
+      <span data-i18n="ai.title">مشاريع إضافية بتقنية الذكاء الاصطناعي</span>
     </div>
-    <p class="section-subtext">
+    <p class="section-subtext" data-i18n="ai.sub">
       مواقع وتطبيقات صممتها وطورتها بنفسي باستخدام أدوات الذكاء الاصطناعي، توضح قدرتي على استخدام التقنيات الحديثة في التصميم والتطوير إلى جانب تخصصي الأساسي.
     </p>
     <div class="ai-grid">
-      <a href="https://interior-design-hub-nu.vercel.app/" target="_blank" class="ai-card">
-        <div class="ai-icon">🏠</div>
+      <a href="https://interior-design-hub-nu.vercel.app/" target="_blank" rel="noopener" class="ai-card">
+        <div class="ai-icon" aria-hidden="true">🏠</div>
         <div class="ai-title">Interior Design Hub</div>
-        <div class="ai-desc">دليل شامل لخريجي التصميم الداخلي — مخططات CAD، Revit، وخرائط مقترحة</div>
+        <div class="ai-desc" data-i18n="ai.1.desc">دليل شامل لخريجي التصميم الداخلي — مخططات CAD، Revit، وخرائط مقترحة</div>
         <span class="ai-badge">interior-design-hub-nu.vercel.app</span>
       </a>
-      <a href="https://medcare-edx2.whacka.app/" target="_blank" class="ai-card">
-        <div class="ai-icon">🏥</div>
+      <a href="https://medcare-edx2.whacka.app/" target="_blank" rel="noopener" class="ai-card">
+        <div class="ai-icon" aria-hidden="true">🏥</div>
         <div class="ai-title">Medcare</div>
-        <div class="ai-desc">منصة طبية متكاملة — حجز مواعيد، استشارات، وإدارة المرافق الصحية</div>
+        <div class="ai-desc" data-i18n="ai.2.desc">منصة طبية متكاملة — حجز مواعيد، استشارات، وإدارة المرافق الصحية</div>
         <span class="ai-badge">medcare-edx2.whacka.app</span>
       </a>
-      <a href="https://miracle-pm.vercel.app/" target="_blank" class="ai-card">
-        <div class="ai-icon">📊</div>
+      <a href="https://miracle-pm.vercel.app/" target="_blank" rel="noopener" class="ai-card">
+        <div class="ai-icon" aria-hidden="true">📊</div>
         <div class="ai-title">Miracle PM</div>
-        <div class="ai-desc">نظام إدارة مشاريع المقاولات — جداول كميات، مراحل تنفيذ، ومتابعة موقع</div>
+        <div class="ai-desc" data-i18n="ai.3.desc">نظام إدارة مشاريع المقاولات — جداول كميات، مراحل تنفيذ، ومتابعة موقع</div>
         <span class="ai-badge">miracle-pm.vercel.app</span>
       </a>
-      <a href="https://six-flax-10.vercel.app/" target="_blank" class="ai-card">
-        <div class="ai-icon">🏗️</div>
-        <div class="ai-title">ميركل للمقاولات</div>
-        <div class="ai-desc">موقع شركة مقاولات عامة — 21 سنة خبرة، 340 مشروعاً منجزاً</div>
+      <a href="https://six-flax-10.vercel.app/" target="_blank" rel="noopener" class="ai-card">
+        <div class="ai-icon" aria-hidden="true">🏗️</div>
+        <div class="ai-title" data-i18n="ai.4.title">ميركل للمقاولات</div>
+        <div class="ai-desc" data-i18n="ai.4.desc">موقع شركة مقاولات عامة — 21 سنة خبرة، 340 مشروعاً منجزاً</div>
         <span class="ai-badge">six-flax-10.vercel.app</span>
       </a>
-      <a href="https://music-verse-analyzer.bonto.run" target="_blank" class="ai-card">
-        <div class="ai-icon">🎵</div>
+      <a href="https://music-verse-analyzer.bonto.run" target="_blank" rel="noopener" class="ai-card">
+        <div class="ai-icon" aria-hidden="true">🎵</div>
         <div class="ai-title">Music Verse Analyzer</div>
-        <div class="ai-desc">محلل موسيقى وشعر — تحليل إيقاع، سلم، طبقة صوتية، وتوافق رياضي</div>
+        <div class="ai-desc" data-i18n="ai.5.desc">محلل موسيقى وشعر — تحليل إيقاع، سلم، طبقة صوتية، وتوافق رياضي</div>
         <span class="ai-badge">music-verse-analyzer.bonto.run</span>
       </a>
-      <a href="https://arabic-fonts-website.vercel.app/" target="_blank" class="ai-card">
-        <div class="ai-icon">✒️</div>
-        <div class="ai-title">مكتبة خط الثلث</div>
-        <div class="ai-desc">أداة لكتابة النصوص العربية بخط الثلث الكلاسيكي مع تشكيل كامل، تحليل نوع الخط، وتصدير كصورة أو PDF</div>
+      <a href="https://arabic-fonts-website.vercel.app/" target="_blank" rel="noopener" class="ai-card">
+        <div class="ai-icon" aria-hidden="true">✒️</div>
+        <div class="ai-title" data-i18n="ai.6.title">مكتبة خط الثلث</div>
+        <div class="ai-desc" data-i18n="ai.6.desc">أداة لكتابة النصوص العربية بخط الثلث الكلاسيكي مع تشكيل كامل، تحليل نوع الخط، وتصدير كصورة أو PDF</div>
         <span class="ai-badge">arabic-fonts-website.vercel.app</span>
       </a>
-      <a href="https://architectural-project-tracker.vercel.app/" target="_blank" class="ai-card">
-        <div class="ai-icon">📐</div>
-        <div class="ai-title">متتبع مراحل المشروع المعماري</div>
-        <div class="ai-desc">أداة لمتابعة سير العمل في المشاريع المعمارية والتصميم الداخلي عبر 7 مراحل — من البرنامج التصميمي حتى التسليم</div>
+      <a href="https://architectural-project-tracker.vercel.app/" target="_blank" rel="noopener" class="ai-card">
+        <div class="ai-icon" aria-hidden="true">📐</div>
+        <div class="ai-title" data-i18n="ai.7.title">متتبع مراحل المشروع المعماري</div>
+        <div class="ai-desc" data-i18n="ai.7.desc">أداة لمتابعة سير العمل في المشاريع المعمارية والتصميم الداخلي عبر 7 مراحل — من البرنامج التصميمي حتى التسليم</div>
         <span class="ai-badge">architectural-project-tracker.vercel.app</span>
       </a>
     </div>
@@ -843,39 +905,39 @@
   <div class="section" style="background: var(--light); margin: 0; max-width: 100%; padding: 40px 24px;">
     <div style="max-width: 800px; margin: 0 auto;">
       <div class="section-title">
-        <div class="icon">📜</div>
-        الخبرات
+        <div class="icon" aria-hidden="true">📜</div>
+        <span data-i18n="cert.title">الخبرات</span>
       </div>
       <div class="cert-grid">
         <div class="cert-card">
-          <div class="cert-icon">🏅</div>
+          <div class="cert-icon" aria-hidden="true">🏅</div>
           <div class="cert-content">
-            <h4>إدارة المشاريع (PMP)</h4>
-            <p>إدارة المشاريع الإنشائية والتقنية</p>
+            <h4 data-i18n="cert.1.h">إدارة المشاريع (PMP)</h4>
+            <p data-i18n="cert.1.p">إدارة المشاريع الإنشائية والتقنية</p>
             <span class="cert-year">2024</span>
           </div>
         </div>
         <div class="cert-card">
-          <div class="cert-icon">🏅</div>
+          <div class="cert-icon" aria-hidden="true">🏅</div>
           <div class="cert-content">
-            <h4>احترافية في برامج التصميم المعماري والنمذجة ثلاثية الأبعاد</h4>
-            <p>احترافية في برامج التصميم المعماري والنمذجة ثلاثية الأبعاد</p>
+            <h4 data-i18n="cert.2.h">احترافية في برامج التصميم المعماري والنمذجة ثلاثية الأبعاد</h4>
+            <p data-i18n="cert.2.p">احترافية في برامج التصميم المعماري والنمذجة ثلاثية الأبعاد</p>
             <span class="cert-year">2023</span>
           </div>
         </div>
         <div class="cert-card">
-          <div class="cert-icon">🏅</div>
+          <div class="cert-icon" aria-hidden="true">🏅</div>
           <div class="cert-content">
-            <h4>نظام إدارة الجودة في المشاريع</h4>
-            <p>المواصفات والمقاييس — نظام إدارة الجودة في المشاريع</p>
+            <h4 data-i18n="cert.3.h">نظام إدارة الجودة في المشاريع</h4>
+            <p data-i18n="cert.3.p">المواصفات والمقاييس — نظام إدارة الجودة في المشاريع</p>
             <span class="cert-year">2022</span>
           </div>
         </div>
         <div class="cert-card">
-          <div class="cert-icon">🏅</div>
+          <div class="cert-icon" aria-hidden="true">🏅</div>
           <div class="cert-content">
-            <h4>إدارة السلامة والصحة المهنية</h4>
-            <p>معايير السلامة في مواقع البناء والإنشاءات</p>
+            <h4 data-i18n="cert.4.h">إدارة السلامة والصحة المهنية</h4>
+            <p data-i18n="cert.4.p">معايير السلامة في مواقع البناء والإنشاءات</p>
             <span class="cert-year">2021</span>
           </div>
         </div>
@@ -888,28 +950,28 @@
     <div class="edu-lang-grid">
       <div>
         <div class="section-title" style="margin-bottom: 16px;">
-          <div class="icon">🎓</div>
-          التعليم
+          <div class="icon" aria-hidden="true">🎓</div>
+          <span data-i18n="edu.title">التعليم</span>
         </div>
         <div class="edu-card">
-          <h4>بكالوريوس في التصميم الداخلي / العمارة</h4>
-          <div class="sub">جامعة أم درمان الأهلية، السودان</div>
+          <h4 data-i18n="edu.degree">بكالوريوس في التصميم الداخلي / العمارة</h4>
+          <div class="sub" data-i18n="edu.school">جامعة أم درمان الأهلية، السودان</div>
           <div class="year">2002</div>
         </div>
       </div>
       <div>
         <div class="section-title" style="margin-bottom: 16px;">
-          <div class="icon">🌐</div>
-          اللغات
+          <div class="icon" aria-hidden="true">🌐</div>
+          <span data-i18n="lang.title">اللغات</span>
         </div>
         <div class="lang-row">
           <div class="lang-item">
-            <span>العربية</span>
-            <span class="badge">اللغة الأم</span>
+            <span data-i18n="lang.ar">العربية</span>
+            <span class="badge" data-i18n="lang.ar.level">اللغة الأم</span>
           </div>
           <div class="lang-item">
-            <span>الإنجليزية</span>
-            <span class="badge">جيد جداً</span>
+            <span data-i18n="lang.en">الإنجليزية</span>
+            <span class="badge" data-i18n="lang.en.level">جيد جداً</span>
           </div>
         </div>
       </div>
@@ -920,29 +982,29 @@
   <div class="section" style="background: var(--light); margin: 0; max-width: 100%; padding: 40px 24px;">
     <div style="max-width: 800px; margin: 0 auto;">
       <div class="section-title">
-        <div class="icon">🎯</div>
-        الفرص التي أبحث عنها
+        <div class="icon" aria-hidden="true">🎯</div>
+        <span data-i18n="opp.title">الفرص التي أبحث عنها</span>
       </div>
       <div class="opp-grid">
         <div class="opp-card">
-          <div class="opp-icon">🏗️</div>
-          <div class="opp-title">مدير مكتب فني</div>
-          <div class="opp-desc">إدارة المكاتب الفنية للمشاريع الإنشائية والتشطيبات الفاخرة</div>
+          <div class="opp-icon" aria-hidden="true">🏗️</div>
+          <div class="opp-title" data-i18n="opp.1.t">مدير مكتب فني</div>
+          <div class="opp-desc" data-i18n="opp.1.d">إدارة المكاتب الفنية للمشاريع الإنشائية والتشطيبات الفاخرة</div>
         </div>
         <div class="opp-card">
-          <div class="opp-icon">📊</div>
-          <div class="opp-title">مدير مشاريع</div>
-          <div class="opp-desc">إدارة المشاريع من التصميم حتى التسليم مع ضبط الجودة والتكلفة</div>
+          <div class="opp-icon" aria-hidden="true">📊</div>
+          <div class="opp-title" data-i18n="opp.2.t">مدير مشاريع</div>
+          <div class="opp-desc" data-i18n="opp.2.d">إدارة المشاريع من التصميم حتى التسليم مع ضبط الجودة والتكلفة</div>
         </div>
         <div class="opp-card">
-          <div class="opp-icon">🤝</div>
-          <div class="opp-title">استشاري تصميم وبناء</div>
-          <div class="opp-desc">استشارات متخصصة في التصميم الداخلي والتنسيق الإنشائي</div>
+          <div class="opp-icon" aria-hidden="true">🤝</div>
+          <div class="opp-title" data-i18n="opp.3.t">استشاري تصميم وبناء</div>
+          <div class="opp-desc" data-i18n="opp.3.d">استشارات متخصصة في التصميم الداخلي والتنسيق الإنشائي</div>
         </div>
         <div class="opp-card">
-          <div class="opp-icon">🏢</div>
+          <div class="opp-icon" aria-hidden="true">🏢</div>
           <div class="opp-title">Fit Out Manager</div>
-          <div class="opp-desc">إدارة أعمال التشطيبات والفت آوت للمشاريع التجارية والسكنية من المخطط حتى التسليم</div>
+          <div class="opp-desc" data-i18n="opp.4.d">إدارة أعمال التشطيبات والفت آوت للمشاريع التجارية والسكنية من المخطط حتى التسليم</div>
         </div>
       </div>
     </div>
@@ -951,35 +1013,329 @@
   <!-- Contact -->
   <div class="section" style="padding-bottom: 0;">
     <div class="contact-bar">
-      <h3>📬 تواصل معي</h3>
+      <h3><span data-i18n="contact.title">تواصل معي</span> 📬</h3>
       <div class="contact-links">
         <a href="mailto:Htm1975@gmail.com" class="contact-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           Htm1975@gmail.com
         </a>
-        <a href="https://www.linkedin.com/in/haytham-altohami-54a6b267/" target="_blank" class="contact-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <a href="https://www.linkedin.com/in/haytham-altohami-54a6b267/" target="_blank" rel="noopener" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
-        <a href="tel:+201035752110" class="contact-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +20 103 575 2110
-        </a>
-        <a href="tel:+201154612983" class="contact-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +20 115 461 2983
-        </a>
-        <a href="tel:+249913471374" class="contact-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +249 91 347 1374
+        <a href="tel:+966546322124" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0546322124
         </a>
       </div>
     </div>
   </div>
 
-  <div class="footer">
+  <div class="footer" data-i18n="footer">
     هيثم التهامي © 2026 — جميع الحقوق محفوظة
   </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var I18N = {
+        meta: {
+          ar: {
+            title: 'هيثم التهامي | مهندس تصميم داخلي أول ومدير مشاريع — متاح للعمل في المملكة العربية السعودية',
+            description: 'هيثم التهامي — مهندس تصميم داخلي أول، مدير مكتب فني، ومدير مشاريع في المدينة المنورة، المملكة العربية السعودية.'
+          },
+          en: {
+            title: 'Haytham Al-Tohami | Senior Interior Design Engineer & Project Manager — Available for Work in Saudi Arabia',
+            description: 'Haytham Al-Tohami — Senior Interior Design Engineer, Technical Office Manager and Project Manager based in Al Madinah, Saudi Arabia.'
+          }
+        },
+        strings: {
+          ar: {
+            'alt.photo': 'هيثم التهامي',
+            'hero.name': 'هيثم التهامي',
+            'hero.title': 'مدير مكتب فني | مدير مشاريع | استشاري تصميم وبناء',
+            'hero.location': 'المدينه المنوره - المملكه العربيه السعوديه',
+            'hero.badges.saudi': 'خبرة عمل سابقة في السعودية',
+            'hero.badges.relocate': 'متاح للانتقال فورًا',
+            'hero.badges.ai': '+7 مشاريع AI',
+
+            'about.title': 'نبذة احترافية',
+            'about.text': 'مهندس تصميم داخلي أول ومدير مكتب فني ومشرف مشاريع بخبرة عملية واسعة في تنفيذ المشاريع المعقدة في السودان والسعودية ومصر. سجل حافل في قيادة المكاتب الفنية وتنسيق التصاميم الإنشائية والجمالية وتنفيذ المشاريع من المفهوم وحتى التسليم. خبير في جدولة المشاريع وهندسة القيمة وجداول الكميات (BOQ) وضمان الالتزام بالميزانيات ومعايير الجودة. أمتلك خبرة متقدمة في تصميم وتطوير المواقع والتطبيقات باستخدام الذكاء الاصطناعي.',
+            'about.stats.countries': 'دول',
+            'about.stats.projects': 'مشروع منفذ',
+            'about.stats.ai': 'مواقع AI',
+
+            'exp.title': 'الخبرات العملية',
+            'exp.1.role': 'مدير مشاريع',
+            'exp.1.company': 'شركة الديار للإنشاءات | مصر',
+            'exp.1.date': 'يوليو 2025 – حتى الآن',
+            'exp.1.b1': 'إدارة المشاريع من التصميم حتى التسليم وضمان الالتزام بالجدول الزمني والميزانية',
+            'exp.1.b2': 'التنسيق مع المكتب الفني والمقاولين والاستشاريين لحل تعارضات التصميم وضمان التنفيذ السلس',
+            'exp.1.b3': 'متابعة تقدم التنفيذ الموقعي وضبط الجودة على مستوى المشروع',
+            'exp.2.role': 'مدير المكتب الفني',
+            'exp.2.company': 'شركة الديار للإنشاءات | مصر',
+            'exp.2.date': 'يوليو 2024 – يوليو 2025',
+            'exp.2.b1': 'إدارة جميع عمليات المكتب الفني وإنتاج Shop Drawings وMaterial Submittals وRFI',
+            'exp.2.b2': 'إعداد جداول الكميات (BOQ) والتقديرات التكلفية ومقترحات هندسة القيمة',
+            'exp.3.role': 'مشرف تصميم وبناء',
+            'exp.3.company': 'أعمال خاصة | السودان',
+            'exp.3.date': 'مايو 2008 – مارس 2023',
+            'exp.3.b1': 'إدارة الإشراف على التصميم وإدارة المشاريع السكنية والتجارية والضيافة الفاخرة',
+            'exp.3.b2': 'إدارة التنفيذ الموقعي وجدولة المشاريع باستخدام MS Project',
+            'exp.3.b3': 'إجراء عمليات تفتيش دورية لضمان الالتزام بمعايير الجودة والمواصفات',
+            'exp.4.role': 'استشاري تصميم وبناء',
+            'exp.4.company': 'شركة زهير للإنشاءات | السعودية',
+            'exp.4.date': 'أبريل 2007 – أبريل 2008',
+            'exp.4.b1': 'تقديم استشارات التصميم الداخلي والتنسيق الإنشائي ومواد التشطيبات',
+            'exp.4.b2': 'مراجعة واعتماد المخططات المعمارية بما يتوافق مع أكواد البناء المحلية',
+
+            'skills.title': 'المهارات والأدوات',
+            'skills.pm': 'إدارة المشاريع',
+            'skills.pm.1': 'جدولة المشاريع',
+            'skills.pm.2': 'إدارة المكتب الفني',
+            'skills.pm.3': 'إدارة التشطيبات',
+            'skills.pm.4': 'إشراف موقع',
+            'skills.pm.5': 'ضبط الجودة',
+            'skills.cost': 'التكاليف والعقود',
+            'skills.cost.1': 'تقدير التكاليف',
+            'skills.cost.2': 'هندسة القيمة',
+            'skills.cost.3': 'إدارة الميزانية',
+            'skills.design': 'التصميم والعمارة',
+            'skills.design.1': 'التصميم الداخلي',
+            'skills.design.2': 'التصميم المكاني',
+            'skills.design.3': 'التنسيق الإنشائي',
+            'skills.ai': 'الذكاء الاصطناعي',
+            'skills.ai.1': 'تصميم المواقع',
+            'skills.ai.2': 'تطوير التطبيقات',
+            'skills.office': 'البرامج المكتبية',
+
+            'work.title': 'معرض الأعمال',
+            'work.sub': 'تصفح أعمالي على منصة Behance',
+            'work.btn': 'مشاهدة المعرض على Behance',
+            'work.more': '+ المزيد',
+
+            'ai.title': 'مشاريع إضافية بتقنية الذكاء الاصطناعي',
+            'ai.sub': 'مواقع وتطبيقات صممتها وطورتها بنفسي باستخدام أدوات الذكاء الاصطناعي، توضح قدرتي على استخدام التقنيات الحديثة في التصميم والتطوير إلى جانب تخصصي الأساسي.',
+            'ai.1.desc': 'دليل شامل لخريجي التصميم الداخلي — مخططات CAD، Revit، وخرائط مقترحة',
+            'ai.2.desc': 'منصة طبية متكاملة — حجز مواعيد، استشارات، وإدارة المرافق الصحية',
+            'ai.3.desc': 'نظام إدارة مشاريع المقاولات — جداول كميات، مراحل تنفيذ، ومتابعة موقع',
+            'ai.4.title': 'ميركل للمقاولات',
+            'ai.4.desc': 'موقع شركة مقاولات عامة — 21 سنة خبرة، 340 مشروعاً منجزاً',
+            'ai.5.desc': 'محلل موسيقى وشعر — تحليل إيقاع، سلم، طبقة صوتية، وتوافق رياضي',
+            'ai.6.title': 'مكتبة خط الثلث',
+            'ai.6.desc': 'أداة لكتابة النصوص العربية بخط الثلث الكلاسيكي مع تشكيل كامل، تحليل نوع الخط، وتصدير كصورة أو PDF',
+            'ai.7.title': 'متتبع مراحل المشروع المعماري',
+            'ai.7.desc': 'أداة لمتابعة سير العمل في المشاريع المعمارية والتصميم الداخلي عبر 7 مراحل — من البرنامج التصميمي حتى التسليم',
+
+            'cert.title': 'الخبرات',
+            'cert.1.h': 'إدارة المشاريع (PMP)',
+            'cert.1.p': 'إدارة المشاريع الإنشائية والتقنية',
+            'cert.2.h': 'احترافية في برامج التصميم المعماري والنمذجة ثلاثية الأبعاد',
+            'cert.2.p': 'احترافية في برامج التصميم المعماري والنمذجة ثلاثية الأبعاد',
+            'cert.3.h': 'نظام إدارة الجودة في المشاريع',
+            'cert.3.p': 'المواصفات والمقاييس — نظام إدارة الجودة في المشاريع',
+            'cert.4.h': 'إدارة السلامة والصحة المهنية',
+            'cert.4.p': 'معايير السلامة في مواقع البناء والإنشاءات',
+
+            'edu.title': 'التعليم',
+            'edu.degree': 'بكالوريوس في التصميم الداخلي / العمارة',
+            'edu.school': 'جامعة أم درمان الأهلية، السودان',
+
+            'lang.title': 'اللغات',
+            'lang.ar': 'العربية',
+            'lang.ar.level': 'اللغة الأم',
+            'lang.en': 'الإنجليزية',
+            'lang.en.level': 'جيد جداً',
+
+            'opp.title': 'الفرص التي أبحث عنها',
+            'opp.1.t': 'مدير مكتب فني',
+            'opp.1.d': 'إدارة المكاتب الفنية للمشاريع الإنشائية والتشطيبات الفاخرة',
+            'opp.2.t': 'مدير مشاريع',
+            'opp.2.d': 'إدارة المشاريع من التصميم حتى التسليم مع ضبط الجودة والتكلفة',
+            'opp.3.t': 'استشاري تصميم وبناء',
+            'opp.3.d': 'استشارات متخصصة في التصميم الداخلي والتنسيق الإنشائي',
+            'opp.4.d': 'إدارة أعمال التشطيبات والفت آوت للمشاريع التجارية والسكنية من المخطط حتى التسليم',
+
+            'contact.title': 'تواصل معي 📬',
+            'footer': 'هيثم التهامي © 2026 — جميع الحقوق محفوظة'
+          },
+          en: {
+            'alt.photo': 'Haytham Al-Tohami',
+            'hero.name': 'Haytham Al-Tohami',
+            'hero.title': 'Technical Office Manager | Project Manager | Design & Build Consultant',
+            'hero.location': 'Al Madinah — Kingdom of Saudi Arabia',
+            'hero.badges.saudi': 'Previous work experience in Saudi Arabia',
+            'hero.badges.relocate': 'Available to relocate immediately',
+            'hero.badges.ai': '7+ AI projects',
+
+            'about.title': 'Professional Profile',
+            'about.text': 'Senior Interior Design Engineer, Technical Office Manager and Project Supervisor with extensive hands-on experience delivering complex projects across Sudan, Saudi Arabia and Egypt. A proven track record of leading technical offices, coordinating structural and aesthetic design, and delivering projects from concept through to handover. Skilled in project scheduling, value engineering, Bills of Quantities (BOQ), budget compliance and quality standards. I also have advanced experience in designing and developing websites and applications using Artificial Intelligence.',
+            'about.stats.countries': 'Countries',
+            'about.stats.projects': 'Projects Delivered',
+            'about.stats.ai': 'AI Websites',
+
+            'exp.title': 'Work Experience',
+            'exp.1.role': 'Project Manager',
+            'exp.1.company': 'Al-Diyar Contracting Company | Egypt',
+            'exp.1.date': 'July 2025 – Present',
+            'exp.1.b1': 'Managing projects from design through delivery, ensuring compliance with schedule and budget',
+            'exp.1.b2': 'Coordinating with the technical office, contractors and consultants to resolve design clashes and ensure smooth execution',
+            'exp.1.b3': 'Tracking on-site progress and enforcing quality control at project level',
+            'exp.2.role': 'Technical Office Manager',
+            'exp.2.company': 'Al-Diyar Contracting Company | Egypt',
+            'exp.2.date': 'July 2024 – July 2025',
+            'exp.2.b1': 'Managing all technical office operations and producing shop drawings, material submittals and RFIs',
+            'exp.2.b2': 'Preparing Bills of Quantities (BOQ), cost estimates and value engineering proposals',
+            'exp.3.role': 'Design & Build Supervisor',
+            'exp.3.company': 'Private Practice | Sudan',
+            'exp.3.date': 'May 2008 – March 2023',
+            'exp.3.b1': 'Overseeing design and managing residential, commercial and luxury hospitality projects',
+            'exp.3.b2': 'Managing site execution and project scheduling using MS Project',
+            'exp.3.b3': 'Conducting periodic inspections to ensure compliance with quality standards and specifications',
+            'exp.4.role': 'Design & Build Consultant',
+            'exp.4.company': 'Zuhair Contracting Company | Saudi Arabia',
+            'exp.4.date': 'April 2007 – April 2008',
+            'exp.4.b1': 'Providing interior design consultancy, structural coordination and finish-materials advice',
+            'exp.4.b2': 'Reviewing and approving architectural drawings in line with local building codes',
+
+            'skills.title': 'Skills & Tools',
+            'skills.pm': 'Project Management',
+            'skills.pm.1': 'Project Scheduling',
+            'skills.pm.2': 'Technical Office Management',
+            'skills.pm.3': 'Finishing Management',
+            'skills.pm.4': 'Site Supervision',
+            'skills.pm.5': 'Quality Control',
+            'skills.cost': 'Costs & Contracts',
+            'skills.cost.1': 'Cost Estimation',
+            'skills.cost.2': 'Value Engineering',
+            'skills.cost.3': 'Budget Management',
+            'skills.design': 'Design & Architecture',
+            'skills.design.1': 'Interior Design',
+            'skills.design.2': 'Space Planning',
+            'skills.design.3': 'Structural Coordination',
+            'skills.ai': 'Artificial Intelligence',
+            'skills.ai.1': 'Website Design',
+            'skills.ai.2': 'App Development',
+            'skills.office': 'Office Software',
+
+            'work.title': 'Portfolio',
+            'work.sub': 'Browse my work on Behance',
+            'work.btn': 'View the gallery on Behance',
+            'work.more': '+ More',
+
+            'ai.title': 'Additional AI-Powered Projects',
+            'ai.sub': 'Websites and applications I designed and developed myself using AI tools — demonstrating my ability to apply modern technology in design and development alongside my core profession.',
+            'ai.1.desc': 'A complete guide for interior design graduates — CAD drawings, Revit files and suggested plans',
+            'ai.2.desc': 'An all-in-one medical platform — appointments, consultations and health facility management',
+            'ai.3.desc': 'A contracting project management system — BOQs, construction phases and site tracking',
+            'ai.4.title': 'Miracle Contracting',
+            'ai.4.desc': 'A general contracting company website — 21 years of experience and 340 completed projects',
+            'ai.5.desc': 'A music and lyrics analyser — rhythm, scale, pitch and mathematical harmony analysis',
+            'ai.6.title': 'Thuluth Calligraphy Library',
+            'ai.6.desc': 'A tool for writing Arabic text in classical Thuluth calligraphy with full diacritics, font analysis and export as image or PDF',
+            'ai.7.title': 'Architectural Project Stage Tracker',
+            'ai.7.desc': 'A tool to track the workflow of architectural and interior design projects across 7 stages — from the design programme to handover',
+
+            'cert.title': 'Certifications',
+            'cert.1.h': 'Project Management (PMP)',
+            'cert.1.p': 'Construction and technical project management',
+            'cert.2.h': 'Professional in Architectural Design Software and 3D Modelling',
+            'cert.2.p': 'Professional in architectural design software and 3D modelling',
+            'cert.3.h': 'Project Quality Management System',
+            'cert.3.p': 'Specifications & Standards — Project Quality Management System',
+            'cert.4.h': 'Occupational Health & Safety Management',
+            'cert.4.p': 'Safety standards on construction and building sites',
+
+            'edu.title': 'Education',
+            'edu.degree': 'BSc in Interior Design / Architecture',
+            'edu.school': 'Omdurman Ahlia University, Sudan',
+
+            'lang.title': 'Languages',
+            'lang.ar': 'Arabic',
+            'lang.ar.level': 'Native',
+            'lang.en': 'English',
+            'lang.en.level': 'Very Good',
+
+            'opp.title': 'Opportunities I am Looking For',
+            'opp.1.t': 'Technical Office Manager',
+            'opp.1.d': 'Managing technical offices for construction projects and luxury finishing works',
+            'opp.2.t': 'Project Manager',
+            'opp.2.d': 'Managing projects from design to handover with quality and cost control',
+            'opp.3.t': 'Design & Build Consultant',
+            'opp.3.d': 'Specialised consultancy in interior design and structural coordination',
+            'opp.4.d': 'Managing fit-out works for commercial and residential projects from drawings to handover',
+
+            'contact.title': 'Get in Touch 📬',
+            'footer': 'Haytham Al-Tohami © 2026 — All rights reserved'
+          }
+        }
+      };
+
+      var STORE_KEY = 'portfolio-lang';
+
+      function detectInitialLanguage() {
+        var stored = null;
+        try { stored = localStorage.getItem(STORE_KEY); } catch (e) {}
+        if (stored === 'ar' || stored === 'en') { return stored; }
+        try {
+          var url = new URL(window.location.href);
+          var q = url.searchParams.get('lang');
+          if (q === 'ar' || q === 'en') { return q; }
+        } catch (e) {}
+        var nav = (navigator.language || 'ar').slice(0, 2).toLowerCase();
+        return nav === 'ar' ? 'ar' : 'en';
+      }
+
+      function applyLanguage(lang) {
+        var dict = I18N.strings[lang] || I18N.strings.ar;
+        var meta = I18N.meta[lang] || I18N.meta.ar;
+        var root = document.documentElement;
+
+        root.setAttribute('lang', lang);
+        root.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.title = meta.title;
+
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) { metaDesc.setAttribute('content', meta.description); }
+        var ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) { ogTitle.setAttribute('content', meta.title); }
+        var ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) { ogDesc.setAttribute('content', meta.description); }
+
+        var nodes = document.querySelectorAll('[data-i18n]');
+        for (var i = 0; i < nodes.length; i++) {
+          var node = nodes[i];
+          var key = node.getAttribute('data-i18n');
+          if (typeof dict[key] === 'undefined') { continue; }
+          if (key.indexOf('alt.') === 0) {
+            node.setAttribute('alt', dict[key]);
+          } else {
+            node.textContent = dict[key];
+          }
+        }
+
+        var buttons = document.querySelectorAll('.lang-btn');
+        for (var b = 0; b < buttons.length; b++) {
+          var isActive = buttons[b].getAttribute('data-lang') === lang;
+          buttons[b].classList.toggle('active', isActive);
+          buttons[b].setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        }
+
+        try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var buttons = document.querySelectorAll('.lang-btn');
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener('click', function () {
+            applyLanguage(this.getAttribute('data-lang'));
+          });
+        }
+        applyLanguage(detectInitialLanguage());
+      });
+    })();
+  </script>
 
 </body>
 </html>
